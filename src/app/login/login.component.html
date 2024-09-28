@@ -1,0 +1,117 @@
+<header class="header">
+    <nav class="nav__container">
+        <div class="nav__data">
+            <a href="/home" class="nav__logo">
+                <i class="ri-planet-line"></i>Playa Rimac Market
+            </a>
+        </div> 
+    </nav>
+</header>
+
+<body>
+    <div class="container">
+      <div class="forms">
+        <div class="form login">
+          <span class="title">Conectate</span>
+          <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+            <div class="input-field">
+                <input 
+                    type="text" 
+                    placeholder="Usuario" 
+                    [(ngModel)]="nomusuario" 
+                    name="usuario" 
+                    required 
+                />
+                <i class="uil uil-user icon"></i>
+            </div>
+            <div class="input-field">
+                <input 
+                    type="password" 
+                    class="password" 
+                    placeholder="Contraseña" 
+                    [(ngModel)]="password" 
+                    name="password" 
+                    required 
+                />
+                <i class="uil uil-lock icon"></i>
+                <i class="uil uil-eye-slash showHidePw"></i>
+            </div>
+            <div class="checkbox-text">
+                <div class="checkbox-content">
+                    <input type="checkbox" id="logCheck" />
+                    <label for="logCheck" class="text">Recordar</label>
+                </div>
+                <a href="#" class="text">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="input-field button">
+                <input type="submit" value="Login" />
+            </div>
+        </form>
+          <div class="login-signup">
+            <span class="text"
+              >¿No tienes cuenta?
+              <a href="#" class="text signup-link">Registrate</a>
+            </span>
+          </div>
+        </div>
+
+        <div class="form signup">
+            <span class="title">Únete</span>
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                <div class="input-field">
+                  <input 
+                    type="text" 
+                    placeholder="Usuario" 
+                    formControlName="nomusuario" 
+                    required 
+                  />
+                  <i class="uil uil-user icon"></i>
+                </div>
+                <div class="input-field">
+                  <input 
+                    type="text" 
+                    placeholder="Nombres" 
+                    formControlName="nombres" 
+                    required 
+                  />
+                </div>
+                <div class="input-field">
+                  <input 
+                    type="text" 
+                    placeholder="Apellidos" 
+                    formControlName="apellidos" 
+                    required 
+                  />
+                </div>
+                <div class="input-field">
+                  <input 
+                    type="email" 
+                    placeholder="Email" 
+                    formControlName="email" 
+                    required 
+                  />
+                </div>
+                <div class="input-field">
+                  <input 
+                    type="password" 
+                    placeholder="Contraseña" 
+                    formControlName="password" 
+                    required 
+                    minlength="6"
+                  />
+                  <i class="uil uil-lock icon"></i>
+                </div>
+                <div class="input-field button">
+                  <input type="submit" value="Registrar" />
+                </div>
+              </form>              
+            <div class="login-signup">
+              <span class="text">
+                ¿Ya tienes cuenta?
+                <a routerLink="/login" class="text login-link">Entra ahora</a>
+              </span>
+            </div>
+          </div>
+      </div>
+    </div>
+</body>

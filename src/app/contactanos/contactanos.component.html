@@ -41,8 +41,21 @@
                 <!-------DROPDOWN LIST 2------->
                 <li class="dropdown__item">
                     <div class="nav__link">
-                        Mascotas
+                        Mascotas <i class="ri-arrow-down-s-line dropdown__arrow"></i>
                     </div>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <a href="#" class="dropdown__link">
+                                <i class="ri-bread-line"></i> Comida
+                            </a>
+                        </li>
+  
+                        <li>
+                            <a href="#" class="dropdown__link">
+                                <i class="ri-shirt-fill"></i> Ropa
+                            </a>
+                        </li>  
+                    </ul>
                 </li>
                 <li><a href="/contactanos" class="nav__link">Contáctanos</a></li>
             </ul>         
@@ -50,20 +63,24 @@
         <div class="nav__actions">
             <div (click)="toggleProfileMenu()" class="profile-link">
                 <i class="ri-user-line"></i>
-                Hola, {{ userName }} <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-            </div>
-            <ul *ngIf="isProfileMenuOpen" class="dropdown-menu">
-                <li>
-                    <a (click)="editProfile()" class="dropdown-item">
-                        <i class="ri-edit-line"></i> Editar Perfil
+                <ng-container *ngIf="userName; else loginTemplate">
+                    Hola {{ userName }} <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                </ng-container>
+                <ng-template #loginTemplate>
+                    <a (click)="navigateToLogin()" class="nav__link">
+                        Iniciar Sesión <i class="ri-arrow-down-s-line dropdown__arrow"></i>
                     </a>
-                </li>
-                <li>
+                </ng-template>
+            </div>
+
+            <ul *ngIf="isProfileMenuOpen" class="dropdown-menu">
+                <li *ngIf="userName">
                     <a (click)="logout()" class="dropdown-item">
                         <i class="ri-logout-circle-r-line"></i> Cerrar Sesión
                     </a>
                 </li>
             </ul>
+
             <a href="#" class="shop__link">
                 <i class="ri-shopping-cart-line nav__shop" id="shopping-cart"></i>
             </a>
@@ -77,77 +94,76 @@
         </div>
     </nav>
 </header>
-<div class="carousel-container">
-    <div class="carousel-slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlide">
-      <img [src]="slide.img" alt="slide" />
-      <div class="carousel-caption">
-        <h2>{{ slide.title }}</h2>
-        <p>{{ slide.text }}</p>
+
+<div class="main">
+    <h3 class="head">Nuestra Historia</h3>
+    <div class="line-container">
+        <ul>
+            <li>
+                <h3 class="heading">A Inicios</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit excepturi accusamus minus
+                totam </p>
+                <span class="date">1960-1970</span>
+                <span class="circle"></span>
+            </li>
+            <li>
+                <h3 class="heading">Progreso</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit excepturi accusamus minus
+                totam </p>
+                <span class="date">1971-1998</span>
+                <span class="circle"></span>
+            </li>
+            <li>
+                <h3 class="heading">Remodelamos</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit excepturi accusamus minus
+                totam </p>
+                <span class="date">1999-2010</span>
+                <span class="circle"></span>
+            </li>
+            <li>
+                <h3 class="heading">La tecnología</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit excepturi accusamus minus
+                totam </p>
+                <span class="date">2010-Actualidad</span>
+                <span class="circle"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="contactanos-container">
+    <h2>Contáctanos</h2>
+    
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" required>
+        <div *ngIf="contactForm.get('nombre')?.invalid && (contactForm.get('nombre')?.touched || contactForm.get('nombre')?.dirty)" class="error">
+          Nombre es requerido.
+        </div>
       </div>
-    </div>
-    <button class="prev" (click)="prevSlide()">&#10094;</button>
-    <button class="next" (click)="nextSlide()">&#10095;</button>
-</div>
-
-<div class="ofertas-container">
-    <h2>Ofertas más buscadas</h2>
-    <div class="ofertas-grid">
-      <div *ngFor="let producto of ofertas" class="oferta-card">
-        <img [src]="producto.imagenUrl" alt="{{ producto.nombre }}" />
-        <div class="oferta-card-body">
-          <h5 class="oferta-card-title">{{ producto.nombre }}</h5>
-          <p class="oferta-card-text">{{ producto.descripcion }}</p>
-          <p class="oferta-card-price">Precio: {{ producto.precio }}</p>
-          <p *ngIf="producto.enOferta" class="special-offer">¡En oferta por: {{ producto.precioOferta }}!</p>
-          <a href="#" class="view-more-btn">Ver más</a>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" required>
+        <div *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)" class="error">
+          Debe ser un email válido.
         </div>
       </div>
-    </div>
-    <div *ngIf="ofertas.length === 0">
-      <p>No hay ofertas disponibles en este momento.</p>
-    </div>
-</div>
+  
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" formControlName="mensaje" required></textarea>
+        <div *ngIf="contactForm.get('mensaje')?.invalid && (contactForm.get('mensaje')?.touched || contactForm.get('mensaje')?.dirty)" class="error">
+          Mensaje es requerido.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+    </form>
+  </div>
 
-<section class="tips-section">
-    <h2>Consejos Útiles</h2>
-    <div class="tips-list">
-        <div class="tip-card" *ngFor="let tip of tips" (mouseenter)="hoverEffect(tip)" (mouseleave)="resetEffect(tip)">
-            <div class="tip-card-inner">
-                <h3>{{ tip.titulo }}</h3>
-                <p>{{ tip.descripcion }}</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="banner-container">
-    <img src="assets/images/botbanner.jpg" alt="Banner" class="banner-image">
-</div>
-
-<div class="logo-slider">
-    <div class="logo-slider-track">
-        <div class="logo-slide">
-            <img src="assets/images/slider1_1.webp" alt="Logo 1" />
-        </div>
-        <div class="logo-slide">
-            <img src="assets/images/slider1_2.webp" alt="Logo 2" />
-        </div>
-        <div class="logo-slide">
-            <img src="assets/images/slider1_3.webp" alt="Logo 3" />
-        </div>
-        <div class="logo-slide">
-            <img src="assets/images/slider1_4.webp" alt="Logo 4" />
-        </div>
-        <div class="logo-slide">
-            <img src="assets/images/slider1_5.webp" alt="Logo 5" />
-        </div>
-        <div class="logo-slide">
-            <img src="assets/images/slider1_6.webp" alt="Logo 6" />
-        </div>
-    </div>
-</div>
-
-<footer class="footer">
+  <footer class="footer">
     <div class="footer-container">
         <div class="footer-section">
             <h4>Sobre Nosotros</h4>
@@ -181,5 +197,4 @@
     </div>
 </footer>
 
-
- 
+  

@@ -357,67 +357,7 @@ a{
     }
 }
 
-.carousel-container {
-    position: relative;
-    margin-top: 83px;
-    max-width: 100%;
-    overflow: visible;
-    margin-bottom: auto;
-  }
-  
-  .carousel-slide {
-    display: none;
-    text-align: center;
-    position: relative;
-  }
-  
-  .carousel-slide img {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    margin-bottom: -100px;
-  }
-  
-  .carousel-caption {
-    position: relative;
-    bottom: 75px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 10px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 40px;
-  }
-  
-  .active {
-    display: block;
-  }
-  
-  button.prev, button.next {
-    cursor: pointer;
-    position: absolute;
-    top: 45%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    z-index: 10;
-  }
-  
-  button.prev {
-    left: 10px;
-  }
-  
-  button.next {
-    right: 10px;
-  }
-
-
-
-  
-  .nav__link {
+.nav__link {
     cursor: pointer; 
 }
 
@@ -486,84 +426,75 @@ a{
         padding: 10px; 
     }
 }
-
-/*--------------------*/
-
-.ofertas-container {
-    padding: 10px;
-    text-align: center;
-    font-size: 30px;
-    font-family: var(--body-font);
-
-  }
-  
-  .ofertas-grid {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-  
-  .oferta-card {
-    background-color: #fff;
+/*----------------------------------------*/
+.contactanos-container {
+    align-items: center;
+    margin: 10%;
+    padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 50px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    flex: 1 1 50%; 
-    max-width: 225px; 
-    max-height: 500px;
-    transition: transform 0.3s;
-  }
-
-  .oferta-card:hover {
-    transform: scale(1.05); 
   }
   
-  .oferta-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; 
-  }
-  
-  .oferta-card-body {
-    padding: 15px;
-  }
-  
-  .oferta-card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .oferta-card-text {
-    font-size: 14px;
-    color: #555;
-    margin: 10px 0;
-  }
-  
-  .oferta-card-price {
-    font-size: 16px;
+  h2 {
+    text-align: center;
     color: #333;
   }
   
-  .special-offer {
+  h3 {
+    margin-top: 20px;
+    color: #555;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .error {
     color: red;
-    font-weight: bold;
+    font-size: 12px;
   }
   
-  .view-more-btn {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #007bff;
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
     color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    margin-top: 10px;
-    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
   }
   
-  /*----------------------*/
-
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /*---------------------------*/
   .footer {
     background-color: var(--black-color);
     padding: 20px 0;
@@ -624,76 +555,181 @@ a{
     color: #ffffff;
 }
 
-/*-------------------------------*/
 
-.logo-slider {
-    overflow: hidden;
-    width: 100%; 
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .logo-slider-track {
-    display: flex;
-    transition: transform 1.5s ease-in-out; 
-  }
-  
-  .logo-slide {
-    flex: auto; 
-    width: 1000px; 
-  }
-  
-  /*-------------------------------*/
-  .tips-section {
-    padding: 20px;
-    text-align: center;
-    background-color: transparent;
-    font-size: 30px;
+.main {
+	width: 100%;
+	height: auto;
+	display: grid;
+    margin-top: 50px;
+	place-items: center;
+	background-color: rgb(245, 245, 245);
+	padding: 50px 0;
+}
+.main .head {
+	font-size: 29px;
+	color: rgba(44, 11, 99, 0.767);
+	position: relative;
+	margin-bottom: 100px;
+	font-weight: 500;
+}
+.main .head::after {
+	content: " ";
+	position: absolute;
+	width: 50%;
+	height: 3px;
+	left: 50%;
+	bottom: -5px;
+	transform: translateX(-50%);
+	background-image: linear-gradient(to right, rgba(54, 22, 107, 0.767), rgba(238, 12, 200, 0.747));
 }
 
-.tips-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.line-container {
+	width: 70%;
+	height: auto;
+	margin: auto 0;
+	position: relative;
+}
+.line-container ul {
+	list-style: none;
+}
+.line-container ul::after {
+	content: " ";
+	position: absolute;
+	width: 2px;
+	height: 100%;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	background-image: linear-gradient(to bottom, rgba(32, 18, 54, 0.767), rgba(238, 12, 200, 0.747));
+}
+.linecontainer ul li {
+	width: 50%;
+	height: auto;
+	padding: 15px 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.218);
+	position: relative;
+	margin-bottom: 30px;
+	z-index: 99;
+}
+.line-container ul li:nth-child(4) {
+	margin-bottom: 0;
+}
+.line-container ul li .circle {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #0e040f7a;
+	top: 0;
+	display: grid;
+	place-items: center;
+}
+.circle::after{
+	content: ' ';
+	width: 12px;
+	height: 12px;
+	background-color: #220f36;
+	border-radius: 50%;
+}
+ul li:nth-child(odd) .circle {
+	transform: translate(50%, -50%);
+	right: -30px;
+}
+ul li:nth-child(even) .circle {
+	transform: translate(-50%, -50%);
+	left: -30px;
+}
+ul li .date {
+	position: absolute;
+	width: 130px;
+	height: 33px;
+	background-image: linear-gradient(to right,#201c24,#571b5f);
+	border-radius: 15px;
+	top: -45px;
+	display: grid;
+	place-items: center;
+	color: #fff;
+	font-size: 13px;
+	box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.318);
+}
+.line-container ul li:nth-child(odd) {
+	float: left;
+	clear: right;
+	text-align: right;
+	transform: translateX(-30px);
+}
+ul li:nth-child(odd) .date {
+	right: 20px;
+}
+.line-container ul li:nth-child(even) {
+	float: right;
+	clear: left;
+	transform: translateX(30px);
+}
+ul li .heading {
+	font-size: 17px;
+	color: rgb(22, 7, 46);
+}
+ul li p {
+	font-size: 13px;
+	color: #666;
+	line-height: 18px;
+	margin: 6px 0 4px 0;
+}
+ul li a {
+	font-size: 13px;
+	text-decoration: none;
+	color: rgb(18, 54, 214);
+	transition: all 0.3s ease;
 }
 
-.tip-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 40px; /* Aumentado para un mayor tamaño */
-    margin: 30px; /* Aumentado para mayor separación */
-    width: 600px; /* Aumentado el ancho de las cards */
-    height: 400px; /* Establecido para un tamaño más uniforme */
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
+
+@media only screen and (min-width:798px) and (max-width: 1100px) {
+	.line-container{
+		width: 80%;
+	}
 }
 
-.tip-card-inner {
-    transition: transform 0.3s ease-in-out;
+@media only screen and (max-width: 798px) {
+	.line-container{
+		width: 70%;
+		transform: translateX(20px);
+	}
+	.line-container ul::after{
+		left: -40px;
+	}
+	.line-container ul li {
+		width: 100%;
+		float: none;
+		clear: none;
+		margin-bottom: 80px;
+	}
+	.line-container ul li .circle{
+		left: -40px;
+		transform: translate(-50%, -50%);
+	}
+	.line-container li .date{
+		left: 20px;
+	}
+	.line-container ul li:nth-child(odd) {
+		transform: translateX(0px);
+		text-align: left;
+	}
+	.line-container ul li:nth-child(even) {
+		transform: translateX(0px);
+	}
 }
 
-.tip-card:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.tip-card:hover .tip-card-inner {
-    transform: translateY(-10px);
-}
-
-
-.banner-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.banner-image {
-    width: 100%; 
-    max-height: 600px; 
-    object-fit: cover;
+@media only screen and (max-width: 550px) {
+	.container{
+		width: 80%;
+	}
+	.container ul::after{
+		left: -20px;
+	}
+	.container ul li .circle{
+		left: -20px;
+	}
 }
